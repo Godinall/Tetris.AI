@@ -218,11 +218,12 @@ class draw
 		if settings.debug
 			console.debug(((new Date).getDate() - t) + " ms spend drawing")
 
-		@draw_words()
+		if cpu_mode
+			@draw_words()
 		return
 
 	draw_words: () ->
                 @c.fillStyle = "#FFF"
                 @c.font = "bold 13px Arial"
-                @c.fillText("Believe me, you don't want to beat it nor wait for it. ", 100, 520)
+                @c.fillText("Believe me, you don't want to wait for the end of the game. ", 100, 520)
 
