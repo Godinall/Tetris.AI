@@ -85,8 +85,8 @@ class tetris
 
 		@draw()
 
-		getImage('clown').onload = () =>
-			@draw()
+		#getImage('clown').onload = () =>
+			#@draw()
 
 	draw: () ->
 		@drawer.draw()

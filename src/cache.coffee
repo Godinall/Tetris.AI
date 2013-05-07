@@ -83,7 +83,7 @@ init = () ->
 	return if cache._
 
 	# Load resources on the background
-	getImage("clown")
+	#getImage("clown")
 
 	# Calculate srs blocks - TODO calculate size
 	for i in cache.blockTypes by 1

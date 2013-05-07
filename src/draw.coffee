@@ -14,7 +14,7 @@ class draw
 		@options =
 			defaultClearColor: "rgb(255, 255, 255)"
 			defaultBlockColor: "rgba(0, 0, 0, .5)"
-			defaultBgColor: "rgb(0, 0, 0)"
+			defaultBgColor: "rgb(50, 50, 50)"
 			defaultBlockBgColor: "rgba(255, 255, 255, .3)"
 			defaultGridBgColor: "rgba(255, 255, 255, .5)"
 			image: "clown"
@@ -202,15 +202,15 @@ class draw
 		bW = @w / 24
 		bH = @h / 24
 
-		@clearScreen()
-		@drawImageBackground(@x, @y, @w, @h)
+		@clearScreen('rgb(50,50,50)')
+		#@drawImageBackground(@x, @y, @w, @h)
 		@drawGameGrid(@x + bW * 7, @y + bH * 2, bW * 10, bH * 20)
 
 		# Queue
 		@drawBox(@x + bW * 18, @y + bH * 2, bW * 4, bH * 4, @s.queue[0])
 		@drawBox(@x + bW * 18, @y + bH * 7, bW * 4, bH * 4, @s.queue[1])
 		@drawBox(@x + bW * 18, @y + bH * 12, bW * 4, bH * 4, @s.queue[2])
-		@drawBox(@x + bW * 18, @y + bH * 17, bW * 4, bH * 4, @s.queue[3])
+		#@drawBox(@x + bW * 18, @y + bH * 17, bW * 4, bH * 4, @s.queue[3])
 
 		# Hold
 		@drawBox(@x + bW * 2, @y + bH * 2, bW * 4, bH * 4, @s.hold)
