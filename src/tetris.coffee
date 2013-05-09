@@ -66,6 +66,7 @@ class tetris
 		)
 		@keyHandler.registerKeyDown(32, (e) =>
 			@state.doDrop()
+			clearInterval(int)
 
 			e.preventDefault()
 			return false
@@ -90,18 +91,34 @@ class tetris
 
 	draw: () ->
 		@drawer.draw()
-
 		return
+
 
 #foo = ["lets", "test", "something", "out"]
 #console.debug "'" + shuffle(foo).join(" ") + "'"
 #console.debug foo
 
-game = null;
+game = null
+int = null
+intval = 1010
+cpu_mode = false
 
 $(document)['ready'] () ->
-	t = (new Date).getDate()
-	window.game = game = new tetris()
-	if settings.debug
-		console.debug ((new Date).getDate() - t) + " ms to launch game"
-	return
+	game = new tetris()
+	$('#human').attr("disabled",true)
+
+	$('#human').click ->
+		game.keyHandler.registerEventHandlers()
+		intval = 1010
+		cpu_mode = false
+		$('#human').attr("disabled",true)
+		$('#cpu').attr("disabled",false)
+			
+
+	$('#cpu').click ->
+		int = setTimeout(ai, 10)
+		game.keyHandler.unregisterEventHandlers()
+		cpu_mode = true
+		$('#human').attr("disabled",false)
+		$('#cpu').attr("disabled",true)
+

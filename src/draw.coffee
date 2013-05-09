@@ -210,7 +210,7 @@ class draw
 		@drawBox(@x + bW * 18, @y + bH * 2, bW * 4, bH * 4, @s.queue[0])
 		@drawBox(@x + bW * 18, @y + bH * 7, bW * 4, bH * 4, @s.queue[1])
 		@drawBox(@x + bW * 18, @y + bH * 12, bW * 4, bH * 4, @s.queue[2])
-		#@drawBox(@x + bW * 18, @y + bH * 17, bW * 4, bH * 4, @s.queue[3])
+		@drawBox(@x + bW * 18, @y + bH * 17, bW * 4, bH * 4, @s.queue[3])
 
 		# Hold
 		@drawBox(@x + bW * 2, @y + bH * 2, bW * 4, bH * 4, @s.hold)
@@ -218,4 +218,11 @@ class draw
 		if settings.debug
 			console.debug(((new Date).getDate() - t) + " ms spend drawing")
 
+		@draw_words()
 		return
+
+	draw_words: () ->
+                @c.fillStyle = "#FFF"
+                @c.font = "bold 13px Arial"
+                @c.fillText("Believe me, you don't want to beat it nor wait for it. ", 100, 520)
+

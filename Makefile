@@ -5,16 +5,17 @@ INPUT=
 INPUT+= src/keyHandler.coffee
 INPUT+= src/draw.coffee
 INPUT+= src/state.coffee
-INPUT+= src/achievements.coffee
+# INPUT+= src/achievements.coffee
 INPUT+= src/cache.coffee
 INPUT+= src/settings.coffee
+INPUT+= src/ai.coffee
 
 INPUT+= lib/generic.coffee
 
 .PHONY: all clean debug compile concat html copy tokens publish minify
 
 all: compile
-publish: compile minify html copy
+publish: compile minify html 
 
 clean:
 	rm -rf build/
@@ -40,6 +41,7 @@ minify:
 html:
 	@echo "> Writing html file"
 	@cat src/output1.html build/output.min.js src/output2.html > build/output.html
+	@mv build/output.html index.html
 
 copy:
 	@echo "> Copy files"

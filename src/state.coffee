@@ -18,7 +18,8 @@ class state
 
 		# Queue system
 
-		@hold = null          # Block in the hold storage
+		@hold = "i"          # Block in the hold storage
+		#@hold = null          # Block in the hold storage
 		@holdDisabled = false # Disables the hold feature
 		@holdLock = false     # Prevents the active block from being stored
 		@queue = []           # Next block list
@@ -64,6 +65,11 @@ class state
 		@fillQueue()
 		@nextBlock()
 
+		if @counter
+			$("#results").append("<li>" + @counter + "</li>")
+
+		@counter = 0
+
 		return
 
 	fillQueue: (n) ->
@@ -84,6 +90,9 @@ class state
 
 			if @queue.length < queueLength
 				@fillQueue(queueLength)
+
+		@counter++
+		$("#current").text("当前块数:" + @counter)
 
 		return
 
