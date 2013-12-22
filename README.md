@@ -1,13 +1,10 @@
 
-Tetris Forever
+Tetris.AI
 ============
 
-I really have no idea how many blocks will be used until the end of game.
+In this version of Tetris, the player has a 'hold place', which make it possible to put away one block to that place then take back that block when necessary.
 
-Because I got impatient when the number was over 100000.
-
-If you finally see the end of the game, please tell me the number. :-)
-
+Tetris with 'hold place' is much simpler than Tetris without it.
 
 Thanks
 ======
